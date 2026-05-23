@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Ankit Gupta | Cyber Security & Full-Stack Developer</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <!-- Tab Logo -->
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/www/wwwroot/portfolio.ankitgupta.com.np/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0c10;
+      font-family: 'Inter', sans-serif;
+      color: #eef2ff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* animated gradient background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.03) 0%, rgba(10, 12, 16, 0.95) 90%);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    /* floating particles animation */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(0, 255, 200, 0.2);
+      border-radius: 50%;
+      filter: blur(2px);
+      animation: floatParticle 18s infinite ease-in-out;
+    }
+
+    @keyframes floatParticle {
+      0% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.2; }
+      50% { transform: translateY(-40px) translateX(20px) scale(1.2); opacity: 0.6; }
+      100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.2; }
+    }
+
+    /* main container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* glassmorphism card style */
+    .glass-card {
+      background: rgba(18, 22, 30, 0.65);
+      backdrop-filter: blur(12px);
+      border-radius: 2rem;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      box-shadow: 0 20px 35px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 255, 0.05) inset;
+      transition: transform 0.25s ease, border-color 0.2s;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(0, 255, 200, 0.5);
+      transform: translateY(-3px);
+    }
+
+    /* header area */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      padding: 2rem 2rem;
+      gap: 2rem;
+    }
+
+    .badge {
+      background: rgba(0, 255, 200, 0.12);
+      padding: 0.3rem 0.9rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      display: inline-block;
+      border: 0.5px solid rgba(0, 255, 200, 0.4);
+      color: #9efff0;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF 0%, #7fffd4 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      margin: 0.5rem 0 0.25rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #b9c3e6;
+      border-left: 3px solid #0ff;
+      padding-left: 1rem;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .contact-info a, .contact-item {
+      color: #cbd5ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-info a:hover {
+      color: #0ff;
+      text-shadow: 0 0 5px cyan;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .social-links a {
+      color: #b1c2f0;
+      font-size: 1.5rem;
+      transition: all 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #0ff;
+      transform: scale(1.1);
+    }
+
+    /* grid layout */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .section-title i {
+      color: #0ff;
+      font-size: 1.6rem;
+    }
+
+    .skill-tag {
+      background: rgba(0, 255, 200, 0.08);
+      border: 0.5px solid rgba(0, 255, 210, 0.3);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      background: rgba(0, 255, 200, 0.2);
+      border-color: cyan;
+      transform: scale(1.02);
+    }
+
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 1.5rem;
+      border-left: 2px solid cyan;
+      padding-left: 1rem;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #cafff7;
+    }
+
+    .company {
+      color: #7effe6;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .date {
+      font-size: 0.75rem;
+      color: #8e9bc0;
+      margin-bottom: 0.3rem;
+      font-family: monospace;
+    }
+
+    .project-card {
+      background: rgba(10, 14, 23, 0.6);
+      border-radius: 1.5rem;
+      padding: 1.2rem;
+      transition: 0.2s;
+      border: 1px solid rgba(0,255,200,0.1);
+    }
+
+    .project-card a {
+      color: #7effe6;
+      text-decoration: none;
+      font-size: 0.85rem;
+      word-break: break-all;
+    }
+
+    .project-card a i {
+      margin-right: 6px;
+    }
+
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #11161f;
+      padding: 0.6rem 1.2rem;
+      border-radius: 60px;
+    }
+
+    hr {
+      border-color: rgba(0, 255, 255, 0.2);
+      margin: 1rem 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-section {
+      animation: fadeUp 0.6s ease backwards;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      h1 { font-size: 2.2rem; }
+      .hero { flex-direction: column; align-items: start; }
+      .container { padding: 1rem; }
+    }
+
+    .interest-icon {
+      font-size: 0.9rem;
+      background: rgba(0, 255, 200, 0.1);
+      padding: 0.3rem 0.9rem;
+      border-radius: 30px;
+    }
+
+    .highlight {
+      border-left: 3px solid #0ff;
+      background: rgba(0,255,200,0.05);
+    }
+  </style>
+</head>
+<body>
+<div class="particles" id="particles-js"></div>
+<div class="container">
+  <!-- Hero Section -->
+  <div class="glass-card hero animate-section" style="animation-delay: 0s;">
+    <div>
+      <span class="badge"><i class="fas fa-shield-haltered"></i> Ethical Hacker | Full-Stack Developer | Cloud Security</span>
+      <h1>Ankit Gupta</h1>
+      <div class="subtitle">Cyber Security & Ethical Hacking — BSc (Hons) <i class="fas fa-terminal" style="font-size: 1rem; margin-left: 6px;"></i></div>
+      <div class="contact-info" style="margin-top: 1rem;">
+        <span class="contact-item"><i class="fas fa-phone-alt"></i> +977 9817051335</span>
+        <span class="contact-item"><i class="fas fa-envelope"></i> ankitstudentid@gmail.com</span>
+        <span class="contact-item"><i class="fas fa-map-marker-alt"></i> Damak 09, Jhapa, Nepal</span>
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="https://ankitgupta.com.np/" target="_blank"><i class="fas fa-globe"></i></a>
+      <a href="https://www.linkedin.com/in/ankit-gupta-215599266/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/hyperdargo" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.instagram.com/_ankit_shah_dt/_" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+
+  <!-- Summary + skills double column -->
+  <div class="grid-2col animate-section" style="animation-delay: 0.1s;">
+    <!-- Summary (best from all CVs) -->
+    <div class="glass-card" style="padding: 1.8rem;">
+      <div class="section-title"><i class="fas fa-user-astronaut"></i> <span>Professional Summary</span></div>
+      <p style="color:#e0e7ff; line-height: 1.5;">Cybersecurity and Full-Stack Developer with expertise in threat assessment, secure infrastructure deployment, and AI integration. Experienced in collaborative fast-paced environments, seeking to leverage skills in threat mitigation, cloud security, and full-stack development. Proven track record deploying 6+ production services with 99%+ uptime, integrating 12+ AI models, and reducing attack surfaces by 60% through defense-in-depth strategies.</p>
+      <div style="margin-top: 1.3rem; display: flex; flex-wrap: wrap; gap: 8px;">
+        <span class="badge"><i class="fas fa-shield-alt"></i> Network Security</span>
+        <span class="badge"><i class="fas fa-cloud"></i> Cloud Security</span>
+        <span class="badge"><i class="fas fa-robot"></i> AI/ML Integration</span>
+      </div>
+    </div>
+
+    <!-- core skills expanded (merged from all CVs) -->
+    <div class="glass-card" style="padding: 1.8rem;">
+      <div class="section-title"><i class="fas fa-code-branch"></i> <span>Technical Arsenal</span></div>
+      <div class="skills-cloud">
+        <span class="skill-tag">Python / JavaScript / Node.js</span>
+        <span class="skill-tag">Bash / PHP / SQL</span>
+        <span class="skill-tag">Express.js / Discord.js / React</span>
+        <span class="skill-tag">RESTful APIs / WebSocket</span>
+        <span class="skill-tag">Docker / Linux Admin / Nginx</span>
+        <span class="skill-tag">Oracle Cloud / VPS / Proxmox</span>
+        <span class="skill-tag">Metasploit / Burp Suite / Nmap</span>
+        <span class="skill-tag">Wireshark / John the Ripper</span>
+        <span class="skill-tag">MongoDB / MySQL / PostgreSQL</span>
+        <span class="skill-tag">OpenAI / Claude / Grok / DeepSeek</span>
+      </div>
+      <hr>
+      <div><i class="fas fa-microchip"></i> <strong>OS:</strong> Windows (Expert), Linux (Expert), Proxmox VE</div>
+      <div><i class="fas fa-shield-virus"></i> <strong>Security Focus:</strong> IDS/IPS, SSL/TLS, RBAC, OWASP Top 10, API Security</div>
+    </div>
+  </div>
+
+  <!-- Work History (NEW + Freelance combined) -->
+  <div class="glass-card animate-section" style="padding: 1.8rem; margin-bottom: 2rem; animation-delay: 0.2s;">
+    <div class="section-title"><i class="fas fa-briefcase"></i> <span>Work History</span></div>
+    
+    <!-- NEW INTERNSHIP - ACEE Solution -->
+    <div class="timeline-item highlight" style="border-left-color: #ffaa44; background: rgba(255,170,68,0.05); border-radius: 0 12px 12px 0; padding: 0.8rem 0 0.8rem 1rem;">
+      <div class="job-title">Data Security & Front-End Developer Intern <span style="color:#ffaa44;"><i class="fas fa-star-of-life"></i> New</span></div>
+      <div class="company"><i class="fas fa-building"></i> ACEE Solution Pvt Ltd, Kathmandu</div>
+      <div class="date"><i class="far fa-calendar-alt"></i> May 21, 2026 - Present</div>
+      <ul style="margin-left: 1.2rem; margin-top: 0.5rem; color: #cbd5f0;">
+        <li>Implementing data security protocols and front-end security measures for enterprise applications.</li>
+        <li>Developing secure dashboard interfaces with React and enforcing CSP, XSS prevention techniques.</li>
+        <li>Collaborating on API security auditing and integrating OWASP compliance into frontend workflows.</li>
+        <li>Building responsive, high-performance UI components while ensuring data encryption standards.</li>
+      </ul>
+    </div>
+
+    <!-- Freelance / Self-employed (consolidated from multiple CVs) -->
+    <div class="timeline-item">
+      <div class="job-title">Freelance Cybersecurity & Full-Stack Developer <span style="font-weight: normal;">(Self-employed / Remote)</span></div>
+      <div class="date"><i class="far fa-calendar-alt"></i> Nov 2023 - Present | Kathmandu, Nepal (Remote)</div>
+      <ul style="margin-left: 1.2rem; margin-top: 0.5rem; color: #cbd5f0;">
+        <li>Deployed & managed 10+ game servers using Pterodactyl Panel; configured OpenVPN, Nginx, Node.js for secure hosting.</li>
+        <li>Developed high-scale Discord bots (DTEmpire v2, AI Terminal) serving 10,000+ daily interactions with 99.7% uptime.</li>
+        <li>Engineered Lavalink v4 audio streaming supporting 500+ concurrent users across multiple Discord servers.</li>
+        <li>Built AI image generation platform processing 5,000+ images weekly; reduced API calls by 40% via caching.</li>
+        <li>Maintained VPS uptime, backups, resource optimization, and real-time monitoring dashboards.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Education + Certs + Accomplishments Row -->
+  <div class="grid-2col animate-section" style="animation-delay: 0.25s;">
+    <div class="glass-card" style="padding: 1.8rem;">
+      <div class="section-title"><i class="fas fa-graduation-cap"></i> <span>Education</span></div>
+      <div class="timeline-item">
+        <div class="job-title">BSc (Hons) Ethical Hacking and Cybersecurity</div>
+        <div class="date">Mar 2023 - Mar 2026 | Softwarica College of IT & E-commerce (Coventry University Partnership)</div>
+        <div>Third-Year Student | Focus: Network Security, Cryptography, Digital Forensics</div>
+      </div>
+      <div class="timeline-item">
+        <div class="job-title">+2 in Management</div>
+        <div class="date">May 2020 - May 2022 | Jhapa Model English School, Damak</div>
+      </div>
+    </div>
+
+    <div class="glass-card" style="padding: 1.8rem;">
+      <div class="section-title"><i class="fas fa-certificate"></i> <span>Certifications & Achievements</span></div>
+      <div style="margin-bottom: 0.8rem;">
+        <span class="cert-badge"><i class="fas fa-lock" style="color: cyan;"></i> API Security Fundamentals (2025) - Credly</span>
+        <div><a href="https://www.credly.com/users/ankit-gupta.43ab5b64" target="_blank" style="color:#7effe6; font-size:0.8rem;">View Credential →</a></div>
+      </div>
+      <div style="margin-bottom: 0.8rem;">
+        <span class="cert-badge"><i class="fab fa-oracle" style="color: cyan;"></i> Oracle Cloud AI Foundation</span>
+        <div><a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=7A4BF62D25F77B6E603B9FEE8537A60BE149787309E50EB2AAA5254FBDAD472F" target="_blank" style="color:#7effe6; font-size:0.8rem;">Oracle Certified →</a></div>
+      </div>
+      <div><i class="fas fa-trophy" style="color: gold;"></i> <strong>Hackfest 2025 CTF</strong> — Network security, cryptography & digital forensics challenges</div>
+      <div style="margin-top: 0.5rem;"><i class="fas fa-flag-checkered"></i> 100+ CTF challenges solved (HackTheBox, TryHackMe)</div>
+      <div><i class="fab fa-github"></i> 6+ GitHub repos with 50+ stars | Production systems: 99%+ uptime</div>
+    </div>
+  </div>
+
+  <!-- Featured Projects (merged best projects from all CVs) -->
+  <div class="animate-section" style="animation-delay: 0.35s;">
+    <div class="section-title"><i class="fas fa-laptop-code"></i> <span>Flagship Projects</span></div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
+      <div class="project-card">
+        <i class="fas fa-brain"></i> <strong>DTEmpire AI Terminal</strong> – 12+ AI models (GPT-5, Claude, Grok, DeepSeek) · 10k+ daily interactions<br>
+        <a href="https://github.com/hyperdargo/DTEmpire-Ai-Chat-Bot" target="_blank"><i class="fab fa-github"></i> GitHub</a> | <span class="badge" style="font-size:10px;">Live Demo</span>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-music"></i> <strong>DTEmpire Music Bot & Lavalink</strong> – 500+ concurrent users, queue management, YouTube/Spotify support<br>
+        <a href="https://github.com/hyperdargo/Discord-Music-Bot" target="_blank"><i class="fab fa-github"></i> Infrastructure</a> | <span class="badge">real-time metrics</span>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-image"></i> <strong>AI Image Generator</strong> – Flux, Turbo, Kontext · 5k+ images/week, caching reduces API calls by 40%<br>
+        <a href="https://github.com/hyperdargo/Image-Generate" target="_blank"><i class="fab fa-github"></i> Repository</a>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-shield-haltered"></i> <strong>Asura Anti-Cheat</strong> – Exam proctoring system with real-time monitoring & detection<br>
+        <a href="https://github.com/hyperdargo/Asura-Anti-Cheat" target="_blank"><i class="fab fa-github"></i> hyperdargo/Asura-Anti-Cheat</a>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-lock"></i> <strong>CryptoChatSecure</strong> – PKI-powered encrypted messaging (AES, RSA, digital certificates)<br>
+        <a href="https://github.com/hyperdargo/CryptoChatSecure" target="_blank"><i class="fab fa-github"></i> CryptoChatSecure</a>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-map-marked-alt"></i> <strong>Geolocation Tool + Steganography</strong> – IP mapping & image steganography (Python/crypto)<br>
+        <a href="https://github.com/hyperdargo/Steganography-Tool" target="_blank"><i class="fab fa-github"></i> Steganography Tool</a>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-cloud-upload-alt"></i> <strong>Oracle Cloud Security Implementation</strong> – Reduced attack surface by 60%, IDS/IPS, RBAC<br>
+        <span class="skill-tag">Defense-in-depth</span> <span class="skill-tag">Compliance</span>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-dharmachakra"></i> <strong>DTEmpire Documentation Hub</strong> – Matrix-themed UI, 95+ Lighthouse score, live status API<br>
+        <a href="https://docs.ankitgupta.com.np/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Technical Skills Deep Dive + Languages -->
+  <div class="glass-card animate-section" style="margin-top: 2rem; padding: 1.8rem; animation-delay: 0.45s;">
+    <div class="section-title"><i class="fas fa-microchip"></i> <span>Full Technical Spectrum</span></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.8rem; justify-content: space-between;">
+      <div style="flex:1; min-width: 220px;">
+        <strong><i class="fab fa-python"></i> Languages:</strong> Python, JavaScript, Node.js, Bash, SQL, PHP, HTML/CSS, LaTeX<br>
+        <strong><i class="fas fa-cubes"></i> Frameworks:</strong> Express.js, Discord.js, React, Flask, RESTful APIs, WebSocket, Canvas API<br>
+        <strong><i class="fas fa-cloud"></i> Cloud & DevOps:</strong> Oracle Cloud, VPS, Docker, Linux Admin, Nginx, PM2, Git/GitHub, CI/CD
+      </div>
+      <div style="flex:1; min-width: 220px;">
+        <strong><i class="fas fa-shield-alt"></i> Security Arsenal:</strong> Metasploit, Burp Suite, Wireshark, Nmap, Nessus, OWASP ZAP, John the Ripper, Hashcat, Ghidra, pwndbg<br>
+        <strong><i class="fas fa-database"></i> Databases & Streaming:</strong> MongoDB, MySQL, PostgreSQL, Lavalink, Real-time Audio<br>
+        <strong><i class="fas fa-language"></i> Languages:</strong> 🇳🇵 Nepali (Native) | 🇬🇧 English (Fluent) | 🇮🇳 Hindi (Fluent)
+      </div>
+    </div>
+    <hr>
+    <div><i class="fas fa-heart"></i> <strong>Interests:</strong> Server hosting & OS experimentation, Ethical hacking labs, Game modding, DevOps automation, Coding bots & custom AI tools</div>
+  </div>
+
+  <footer>
+    <i class="fas fa-shield-haltered"></i> Ankit Gupta — Cybersecurity & Full-Stack Portfolio | Live projects: 99%+ uptime | <i class="fab fa-github"></i> hyperdargo
+   
+  </footer>
+</div>
+
+<script>
+  // floating particles generator
+  function createParticles() {
+    const container = document.getElementById('particles-js');
+    if(!container) return;
+    const particleCount = 80;
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      const size = Math.random() * 6 + 2;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      const duration = 12 + Math.random() * 18;
+      particle.style.animationDuration = `${duration}s`;
+      particle.style.animationDelay = `${Math.random() * 12}s`;
+      particle.style.background = `rgba(${60 + Math.random() * 100}, ${180 + Math.random() * 75}, 210, ${Math.random() * 0.35 + 0.1})`;
+      container.appendChild(particle);
+    }
+  }
+  createParticles();
+
+  // subtle parallax tilt effect on cards
+  document.querySelectorAll('.glass-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      const rotateX = (y - 0.5) * 2;
+      const rotateY = (x - 0.5) * 2;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    });
+  });
+</script>
+</body>
+</html>
